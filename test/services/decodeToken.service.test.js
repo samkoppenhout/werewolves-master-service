@@ -2,7 +2,7 @@ import { expect } from "chai";
 import sinon from "sinon";
 import jwt from "jsonwebtoken";
 
-import token from "../src/services/decodeToken.service.js";
+import token from "../../src/services/decodeToken.service.js";
 
 describe("decodeToken.service tests", () => {
     describe("decode Tests", () => {

@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
 
-import MasterController from "../src/controllers/Master.controller.js";
+import MasterController from "../../src/controllers/Master.controller.js";
 
 describe("Master.controller tests", async () => {
     let masterController;

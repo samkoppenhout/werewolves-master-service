@@ -53,28 +53,21 @@ export default class MasterService {
     };
 
     join = async (headers, body, roomCode) => {
-        try {
-            let response;
-            if (headers.accesstoken) {
-                response = await this.#joinSignedIn(
-                    headers.accesstoken,
-                    roomCode
-                );
-            } else if (body.username) {
-                response = await this.#joinTemp(body.username, roomCode);
-            }
-            if (!response) {
-                throw new Error(
-                    "Request does not contain the necessary information"
-                );
-            }
-            return {
-                message: response.message,
-                details: response.userDetails,
-            };
-        } catch (error) {
-            throw error;
+        let response;
+        if (headers.accesstoken) {
+            response = await this.#joinSignedIn(headers.accesstoken, roomCode);
+        } else if (body.username) {
+            response = await this.#joinTemp(body.username, roomCode);
         }
+        if (!response) {
+            throw new Error(
+                "Request does not contain the necessary information"
+            );
+        }
+        return {
+            message: response.message,
+            details: response.userDetails,
+        };
     };
 
     leaveRoom = async (id) => {
@@ -96,13 +89,9 @@ export default class MasterService {
     };
 
     createRoom = async (accessToken) => {
-        try {
-            return await this.#createRoomCall(
-                await this.#signedInGetDetails(accessToken)
-            );
-        } catch (error) {
-            throw error;
-        }
+        return await this.#createRoomCall(
+            await this.#signedInGetDetails(accessToken)
+        );
     };
 
     getRole = async (id) => {
@@ -211,12 +200,8 @@ export default class MasterService {
     };
 
     #tempAccountJoin = async (username) => {
-        try {
-            const user = await this.#createTempAccount(username);
-            return { _id: user.id, username: user.username };
-        } catch (error) {
-            throw error;
-        }
+        const user = await this.#createTempAccount(username);
+        return { _id: user.id, username: user.username };
     };
 
     #createTempAccount = async (username) => {

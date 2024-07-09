@@ -3,8 +3,8 @@ import sinon from "sinon";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
-import MasterService from "../src/services/Master.service.js";
-import token from "../src/services/decodeToken.service.js";
+import MasterService from "../../src/services/Master.service.js";
+import token from "../../src/services/decodeToken.service.js";
 
 process.env.JWT_SECRET = "test";
 const USERS_SERVER_URL = "users";

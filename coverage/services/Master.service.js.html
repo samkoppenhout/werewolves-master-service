@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.82% </span>
+                <span class="strong">94.6% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>348/367</span>
+                <span class='fraction'>333/352</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>93/100</span>
+                <span class='fraction'>91/98</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.82% </span>
+                <span class="strong">94.6% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>348/367</span>
+                <span class='fraction'>333/352</span>
             </div>
         
             
@@ -415,22 +415,7 @@
 <a name='L350'></a><a href='#L350'>350</a>
 <a name='L351'></a><a href='#L351'>351</a>
 <a name='L352'></a><a href='#L352'>352</a>
-<a name='L353'></a><a href='#L353'>353</a>
-<a name='L354'></a><a href='#L354'>354</a>
-<a name='L355'></a><a href='#L355'>355</a>
-<a name='L356'></a><a href='#L356'>356</a>
-<a name='L357'></a><a href='#L357'>357</a>
-<a name='L358'></a><a href='#L358'>358</a>
-<a name='L359'></a><a href='#L359'>359</a>
-<a name='L360'></a><a href='#L360'>360</a>
-<a name='L361'></a><a href='#L361'>361</a>
-<a name='L362'></a><a href='#L362'>362</a>
-<a name='L363'></a><a href='#L363'>363</a>
-<a name='L364'></a><a href='#L364'>364</a>
-<a name='L365'></a><a href='#L365'>365</a>
-<a name='L366'></a><a href='#L366'>366</a>
-<a name='L367'></a><a href='#L367'>367</a>
-<a name='L368'></a><a href='#L368'>368</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L353'></a><a href='#L353'>353</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -487,10 +472,6 @@
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">4x</span>
@@ -504,9 +485,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
@@ -530,10 +508,6 @@
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
@@ -644,11 +618,7 @@
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-yes">31x</span>
@@ -852,34 +822,27 @@ export default class MasterService {
     };
 &nbsp;
     join = async (headers, body, roomCode) =&gt; {
-        try {
-            let response;
-            if (headers.accesstoken) {
-                response = await this.#joinSignedIn(
-                    headers.accesstoken,
-                    roomCode
-                );
-            } else if (body.username) {
-                response = await this.#joinTemp(body.username, roomCode);
-            }
-            if (!response) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >                throw new Error(</span>
-<span class="cstat-no" title="statement not covered" >                    "Request does not contain the necessary information"</span>
-<span class="cstat-no" title="statement not covered" >                );</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-            return {
-                message: response.message,
-                details: response.userDetails,
-            };
-        } catch (error) {
-            throw error;
+        let response;
+        if (headers.accesstoken) {
+            response = await this.#joinSignedIn(headers.accesstoken, roomCode);
+        } else if (body.username) {
+            response = await this.#joinTemp(body.username, roomCode);
         }
+        if (!response) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error(</span>
+<span class="cstat-no" title="statement not covered" >                "Request does not contain the necessary information"</span>
+<span class="cstat-no" title="statement not covered" >            );</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+        return {
+            message: response.message,
+            details: response.userDetails,
+        };
     };
 &nbsp;
     leaveRoom = async (id) =&gt; {
         try {
             const ownedRoom = await this.getOwnedRoomByID(id);
-            if (ownedRoom) {
+            if (ownedRoom.room_code) {
                 try {
                     await this.#deleteRoom(ownedRoom.room_code);
                     await this.#deleteTempUsersFromRoom(ownedRoom);
@@ -895,13 +858,9 @@ export default class MasterService {
     };
 &nbsp;
     createRoom = async (accessToken) =&gt; {
-        try {
-            return await this.#createRoomCall(
-                await this.#signedInGetDetails(accessToken)
-            );
-        } catch (error) {
-            throw error;
-        }
+        return await this.#createRoomCall(
+            await this.#signedInGetDetails(accessToken)
+        );
     };
 &nbsp;
     getRole = async (id) =&gt; {
@@ -1010,12 +969,8 @@ export default class MasterService {
     };
 &nbsp;
     #tempAccountJoin = async (username) =&gt; {
-        try {
-            const user = await this.#createTempAccount(username);
-            return { _id: user.id, username: user.username };
-        } catch (error) {
-            throw error;
-        }
+        const user = await this.#createTempAccount(username);
+        return { _id: user.id, username: user.username };
     };
 &nbsp;
     #createTempAccount = async (username) =&gt; {
@@ -1171,7 +1126,7 @@ export default class MasterService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-04T22:19:55.533Z
+                at 2024-07-08T17:10:53.352Z
             </div>
         <script src="../prettify.js"></script>
         <script>
